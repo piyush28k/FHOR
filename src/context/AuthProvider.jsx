@@ -6,6 +6,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
+  const [loading , setLoading] = useState(true)
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -29,6 +30,8 @@ export const AuthProvider = ({ children }) => {
         }
       } catch (error) {
         console.error("Error fetching profile:", error);
+      }finally{
+        setLoading(false)
       }
     };
 
@@ -37,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   // console.log(profile?.name) //check
 
   return (
-    <AuthContext.Provider value={{ user, profile }}>
+    <AuthContext.Provider value={{ user, profile, loading }}>
       {children}
     </AuthContext.Provider>
   );
