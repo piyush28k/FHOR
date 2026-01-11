@@ -70,32 +70,70 @@ function Home() {
 
 
 
-      <div className="h-screen w-full flex flex-col">
-        <div className="h-2/5 w-full flex items-center justify-center">
-          <h1 className="text-6xl w-3/5 leading-18 font-bold text-center">
-            Save time start your Business with our freelancers
-          </h1>
-        </div>
-        <div className="h-3/5 w-full flex items-center gap-20 justify-center">
-          <div className="bg-[#9BD3D0] h-80 w-80 rounded-2xl p-6">
-            <img className="rounded-full p-3 mb-8 bg-white h-18 w-18" src="https://img.icons8.com/?size=100&id=sXm12ie1GUjg&format=png&color=000000" alt="" />
-            <h1 className="text-2xl my-2 font-bold">Development</h1>
-            <h4 className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quidem ipsam atque, quam quas laudantium quasi necessitatibus incidunt corrupti ut.</h4>
-          </div>
-          <div className="bg-[#FECBB8] h-80 w-80 rounded-2xl p-6">
-            <img className="rounded-full p-3 mb-8 bg-white h-18 w-18" src="https://img.icons8.com/?size=100&id=48855&format=png&color=000000" alt="" />
-            <h1 className="text-2xl my-2 font-bold">Plumber</h1>
-            <h4 className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quidem ipsam atque, quam quas laudantium quasi necessitatibus incidunt corrupti ut.</h4>
-          </div>
-          <div className="bg-[#FFC348] h-80 w-80 rounded-2xl p-6">
-            <img className="rounded-full p-3 mb-8 bg-white h-18 w-18" src="https://img.icons8.com/?size=100&id=68665&format=png&color=000000" alt="" />
-            <h1 className="text-2xl my-2 font-bold">Tutor</h1>
-            <h4 className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quidem ipsam atque, quam quas laudantium quasi necessitatibus incidunt corrupti ut.</h4>
-          </div>
-          
-          
-        </div>
-      </div>
+      <div className="min-h-screen w-full flex flex-col px-4 md:px-10">
+  
+  {/* TOP SECTION */}
+  <div className="w-full flex items-center justify-center py-16">
+    <h1 className="text-3xl md:text-5xl lg:text-6xl 
+                   w-full md:w-4/5 lg:w-3/5 
+                   font-bold text-center leading-tight">
+      Save time start your Business with our freelancers
+    </h1>
+  </div>
+
+  {/* CARDS SECTION */}
+  <div className="w-full flex flex-col md:flex-row 
+                  items-center justify-center 
+                  gap-8 md:gap-12 lg:gap-20 pb-16">
+
+    {/* CARD 1 */}
+    <div className="bg-[#9BD3D0] w-full sm:w-96 h-auto rounded-2xl p-6">
+      <img
+        className="rounded-full p-3 mb-6 bg-white h-16 w-16"
+        src="https://img.icons8.com/?size=100&id=sXm12ie1GUjg&format=png&color=000000"
+        alt=""
+      />
+      <h1 className="text-xl md:text-2xl my-2 font-bold">
+        Development
+      </h1>
+      <p className="text-sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
+    </div>
+
+    {/* CARD 2 */}
+    <div className="bg-[#FECBB8] w-full sm:w-96 h-auto rounded-2xl p-6">
+      <img
+        className="rounded-full p-3 mb-6 bg-white h-16 w-16"
+        src="https://img.icons8.com/?size=100&id=48855&format=png&color=000000"
+        alt=""
+      />
+      <h1 className="text-xl md:text-2xl my-2 font-bold">
+        Plumber
+      </h1>
+      <p className="text-sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
+    </div>
+
+    {/* CARD 3 */}
+    <div className="bg-[#FFC348] w-full sm:w-96 h-auto rounded-2xl p-6">
+      <img
+        className="rounded-full p-3 mb-6 bg-white h-16 w-16"
+        src="https://img.icons8.com/?size=100&id=68665&format=png&color=000000"
+        alt=""
+      />
+      <h1 className="text-xl md:text-2xl my-2 font-bold">
+        Tutor
+      </h1>
+      <p className="text-sm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
+    </div>
+
+  </div>
+</div>
+
 
       
     </>
