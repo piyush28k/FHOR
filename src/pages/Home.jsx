@@ -1,8 +1,8 @@
 import React from "react";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
       {/* Hero Section */}
@@ -19,7 +19,10 @@ function Home() {
           <h2 className="text-2xl md:text-3xl">
             Hire a professional <span className="font-bold">NOW!</span>
           </h2>
-          <button onClick={()=>(navigate("/explore"))} className="bg-yellow-400 px-5 py-3 rounded-xl font-bold mt-4 hover:bg-yellow-500 transition cursor-pointer">
+          <button
+            onClick={() => navigate("/explore")}
+            className="bg-yellow-400 px-5 py-3 rounded-xl font-bold mt-4 hover:bg-yellow-500 transition cursor-pointer"
+          >
             Explore
           </button>
         </div>
@@ -42,7 +45,7 @@ function Home() {
       </div>
 
       {/* Logo Section */}
-      <div className="bg-gray-700 py-10 px-4 flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-10">
+      <div className="bg-[#373737] py-10 flex flex-wrap justify-evenly items-center gap-6 md:gap-10">
         <img
           className="h-12 md:h-16 lg:h-20"
           src="https://imgs.search.brave.com/49kIE-sKnZSuWhcE1snsmfjtk0JAL3bhGKYYsSZx1LA/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly93d3cu/ZWRpZ2l0YWxhZ2Vu/Y3kuY29tLmF1L3dw/LWNvbnRlbnQvdXBs/b2Fkcy9uZXctUGF5/UGFsLWxvZ28td2hp/dGUtcG5nLWhvcml6/b250YWwtbGFyZ2Ut/c2l6ZS5wbmc"
@@ -65,8 +68,36 @@ function Home() {
         />
       </div>
 
-      {/* Placeholder for Next Section */}
-      <div className="h-screen w-full bg-red-400"></div>
+
+
+      <div className="h-screen w-full flex flex-col">
+        <div className="h-2/5 w-full flex items-center justify-center">
+          <h1 className="text-6xl w-3/5 leading-18 font-bold text-center">
+            Save time start your Business with our freelancers
+          </h1>
+        </div>
+        <div className="h-3/5 w-full flex items-center gap-20 justify-center">
+          <div className="bg-[#9BD3D0] h-80 w-80 rounded-2xl p-6">
+            <img className="rounded-full p-3 mb-8 bg-white h-18 w-18" src="https://img.icons8.com/?size=100&id=sXm12ie1GUjg&format=png&color=000000" alt="" />
+            <h1 className="text-2xl my-2 font-bold">Development</h1>
+            <h4 className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quidem ipsam atque, quam quas laudantium quasi necessitatibus incidunt corrupti ut.</h4>
+          </div>
+          <div className="bg-[#FECBB8] h-80 w-80 rounded-2xl p-6">
+            <img className="rounded-full p-3 mb-8 bg-white h-18 w-18" src="https://img.icons8.com/?size=100&id=48855&format=png&color=000000" alt="" />
+            <h1 className="text-2xl my-2 font-bold">Plumber</h1>
+            <h4 className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quidem ipsam atque, quam quas laudantium quasi necessitatibus incidunt corrupti ut.</h4>
+          </div>
+          <div className="bg-[#FFC348] h-80 w-80 rounded-2xl p-6">
+            <img className="rounded-full p-3 mb-8 bg-white h-18 w-18" src="https://img.icons8.com/?size=100&id=68665&format=png&color=000000" alt="" />
+            <h1 className="text-2xl my-2 font-bold">Tutor</h1>
+            <h4 className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quidem ipsam atque, quam quas laudantium quasi necessitatibus incidunt corrupti ut.</h4>
+          </div>
+          
+          
+        </div>
+      </div>
+
+      
     </>
   );
 }
