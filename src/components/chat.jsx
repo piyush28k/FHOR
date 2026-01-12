@@ -50,9 +50,14 @@ function chat(props) {
         message: text,
       });
 
-      const updatedMsg = [...messages];
-      updatedMsg.push({ sender: user, message: text });
-      setMessages(updatedMsg);
+      setMessages((list) => [
+        ...list,
+        { sender: user, message: text, room: room },
+      ]);
+
+      // const updatedMsg = [...messages];
+      // updatedMsg.push({ sender: user, message: text });
+      // setMessages(updatedMsg);
       settext("");
     } catch (err) {
       console.error("error in addMessage => ", err);

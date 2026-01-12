@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import img from "../../public/homeIMG.png";
 
 function Home() {
   const navigate = useNavigate();
@@ -68,74 +69,143 @@ function Home() {
         />
       </div>
 
-
-
       <div className="min-h-screen w-full flex flex-col px-4 md:px-10">
-  
-  {/* TOP SECTION */}
-  <div className="w-full flex items-center justify-center py-16">
-    <h1 className="text-3xl md:text-5xl lg:text-6xl 
+        {/* TOP SECTION */}
+        <div className="w-full flex items-center justify-center mb-16 py-16">
+          <h1
+            className="text-3xl md:text-5xl lg:text-6xl 
                    w-full md:w-4/5 lg:w-3/5 
-                   font-bold text-center leading-tight">
-      Save time start your Business with our freelancers
+                   font-bold text-center leading-tight"
+          >
+            Save time start your Business with our freelancers
+          </h1>
+        </div>
+
+        {/* CARDS SECTION */}
+        <div
+          className="w-full flex flex-col md:flex-row 
+                  items-center justify-center 
+                  gap-8 md:gap-12 lg:gap-20 pb-16"
+        >
+          {/* CARD 1 */}
+          <div className="bg-[#9BD3D0] w-full sm:w-96 h-auto rounded-2xl p-10">
+            <img
+              className="rounded-full p-3 mb-6 bg-white h-16 w-16"
+              src="https://img.icons8.com/?size=100&id=sXm12ie1GUjg&format=png&color=000000"
+              alt=""
+            />
+            <h1 className="text-xl md:text-2xl my-2 font-bold">Developer</h1>
+            <p className="text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+
+          {/* CARD 2 */}
+          <div className="bg-[#FECBB8] w-full sm:w-96 h-auto rounded-2xl p-10">
+            <img
+              className="rounded-full p-3 mb-6 bg-white h-16 w-16"
+              src="https://img.icons8.com/?size=100&id=48855&format=png&color=000000"
+              alt=""
+            />
+            <h1 className="text-xl md:text-2xl my-2 font-bold">Plumber</h1>
+            <p className="text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+
+          {/* CARD 3 */}
+          <div className="bg-[#FFC348] w-full sm:w-96 h-auto rounded-2xl p-10">
+            <img
+              className="rounded-full p-3 mb-6 bg-white h-16 w-16"
+              src="https://img.icons8.com/?size=100&id=68665&format=png&color=000000"
+              alt=""
+            />
+            <h1 className="text-xl md:text-2xl my-2 font-bold">Tutor</h1>
+            <p className="text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="h-screen w-full flex bg-[#F6BB3B]">
+        <div className=" h-full w-1/2  justify-center hidden sm:block">
+          <img className="h-full w-full object-cover" src={`${img}`} alt="" />
+        </div>
+        <div className="px-5">
+          <h1 className="text-6xl font-bold text-white pb-7 pt-10">Why us?</h1>
+          <div className="my-10">
+            <div className="flex my-4">
+              <div className="text-5xl font-bold my-">5+</div>
+              <div className="mx-4">
+                <div className="font-bold text-xl">Years of</div>
+                <div className="font-bold text-xl">Experience</div>
+              </div>
+            </div>
+            <div className="w-96">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+              ipsam unde voluptatem? Eveniet incidunt earum eos veritatis error?
+            </div>
+          </div>
+          <div className="my-10">
+            <div className="flex my-4">
+              <div className="text-5xl font-bold my-">7K+</div>
+              <div className="mx-4">
+                <div className="font-bold text-xl">Happy</div>
+                <div className="font-bold text-xl">Users</div>
+              </div>
+            </div>
+            <div className="w-96">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+              ipsam unde voluptatem? Eveniet incidunt earum eos veritatis error?
+            </div>
+          </div>
+          <div className="my-10">
+            <div className="flex my-4">
+              <div className="text-5xl font-bold my-">3K+</div>
+              <div className="mx-4">
+                <div className="font-bold text-xl">Professional</div>
+                <div className="font-bold text-xl">Freelancers</div>
+              </div>
+            </div>
+            <div className="w-96">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+              ipsam unde voluptatem? Eveniet incidunt earum eos veritatis error?
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div className="w-full bg-[#86BAB5] px-4 py-10">
+
+  {/* Heading */}
+  <div className="flex justify-center items-center mb-8">
+    <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-6xl text-center">
+      What our users say
     </h1>
   </div>
 
-  {/* CARDS SECTION */}
-  <div className="w-full flex flex-col md:flex-row 
-                  items-center justify-center 
-                  gap-8 md:gap-12 lg:gap-20 pb-16">
-
-    {/* CARD 1 */}
-    <div className="bg-[#9BD3D0] w-full sm:w-96 h-auto rounded-2xl p-6">
+  {/* Content */}
+  <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center justify-center">
+    
+    {/* Image */}
+    <div className="h-72 w-60 sm:h-80 sm:w-72 rounded-lg overflow-hidden">
       <img
-        className="rounded-full p-3 mb-6 bg-white h-16 w-16"
-        src="https://img.icons8.com/?size=100&id=sXm12ie1GUjg&format=png&color=000000"
-        alt=""
+        className="h-full w-full object-cover"
+        src="https://img.freepik.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg"
+        alt="User"
       />
-      <h1 className="text-xl md:text-2xl my-2 font-bold">
-        Development
-      </h1>
-      <p className="text-sm">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </p>
     </div>
 
-    {/* CARD 2 */}
-    <div className="bg-[#FECBB8] w-full sm:w-96 h-auto rounded-2xl p-6">
-      <img
-        className="rounded-full p-3 mb-6 bg-white h-16 w-16"
-        src="https://img.icons8.com/?size=100&id=48855&format=png&color=000000"
-        alt=""
-      />
-      <h1 className="text-xl md:text-2xl my-2 font-bold">
-        Plumber
-      </h1>
-      <p className="text-sm">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </p>
-    </div>
-
-    {/* CARD 3 */}
-    <div className="bg-[#FFC348] w-full sm:w-96 h-auto rounded-2xl p-6">
-      <img
-        className="rounded-full p-3 mb-6 bg-white h-16 w-16"
-        src="https://img.icons8.com/?size=100&id=68665&format=png&color=000000"
-        alt=""
-      />
-      <h1 className="text-xl md:text-2xl my-2 font-bold">
-        Tutor
-      </h1>
-      <p className="text-sm">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </p>
-    </div>
+    {/* Text */}
+    <h4 className="max-w-xl font-bold text-xl sm:text-2xl md:text-4xl text-center md:text-left">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Autem nulla similique unde odio deserunt non culpa.
+    </h4>
 
   </div>
 </div>
 
-
-      
     </>
   );
 }
