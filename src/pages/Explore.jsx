@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
+import { useAuth } from "../context/AuthProvider.jsx";
 
 function Explore() {
 
@@ -9,33 +10,33 @@ function Explore() {
 
   const [service, setService] = useState("");
   const [location, setLocation] = useState("");
-  const [datas, setdatas] = useState([]);
+  const [servicetemp, setServicetemp] = useState("");
+  const [locationtemp, setLocationtemp] = useState("");
   const [res, setRes] = useState([]);
+  const {user} = useAuth()
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(()=>{
+    if(!user) return
     const fetch = async()=>{
       try{
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/profile/allprofiles`)
-        setdatas(response.data)
-        setRes(response.data)
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/profile/allprofiles?page=${page}&limit=6`,{user,service,location})
+        console.log(response.data)
+        setTotalPages(response.data.totalPage)
+        setRes(response.data.data)
       }catch(error){
-        console.error("error fetching profiles data :", error.response.data || error.message)
+        console.error("error fetching profiles data :", error.response.data || error.message)``
 
       }
     }
     fetch()
-  },[])
+  },[user,page,service,location])
   
-  // console.log(datas)
 
   const handleSubmit = (e) => {
-    const result = datas.filter((data) => {
-      const res = service ? data.title?.toLowerCase().includes(service.toLowerCase()) : true;
-      const loc = location ? data.location?.toLowerCase().includes(location.toLowerCase()) : true;
-      console.log("res: "+ res,"loc: "+ loc)
-      return res && loc;
-    });
-    setRes(result);
+    setService(servicetemp)
+    setLocation(locationtemp)
   };
 
   return (
@@ -58,8 +59,8 @@ function Explore() {
                 placeholder="e.g. Frontend Developer"
                 className="border-2 border-gray-300 rounded-lg py-2 px-4 text-lg w-full md:w-auto
                            focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
-                onChange={(e) => setService(e.target.value)}
-                value={service}
+                onChange={(e) => setServicetemp(e.target.value)}
+                value={servicetemp}
               />
             </div>
 
@@ -77,8 +78,8 @@ function Explore() {
                 placeholder="e.g. Bhopal"
                 className="border-2 border-gray-300 rounded-lg py-2 px-4 text-lg w-full md:w-auto
                            focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
-                onChange={(e) => setLocation(e.target.value)}
-                value={location}
+                onChange={(e) => setLocationtemp(e.target.value)}
+                value={locationtemp}
               />
             </div>
           </div>
@@ -137,6 +138,20 @@ function Explore() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className=" w-full flex gap-5 justify-center my-7 items-center">
+          <button className="border-1 border-gray-300 px-4 py-5 rounded-full" 
+          disabled={page===1} 
+          onClick={() => setPage(prev => Math.max(prev - 1, 1))} 
+          > Prev </button> 
+
+          <div>{page}/{totalPages}</div>
+
+          <button className="border-1 border-gray-300 px-4 py-5 rounded-full"
+          disabled={page===totalPages} 
+          onClick={() => setPage(prev => Math.min(prev + 1, totalPages))} 
+          > Next </button>
         </div>
       </div>
     </>

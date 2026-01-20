@@ -101,7 +101,7 @@ function chat(props) {
     <>
       <>
         <div className="border border-gray-200 rounded-lg">
-          <div className="h-80 w-full border-b-1 flex p-4 border-gray-500 bg-pink-200 overflow-auto">
+          <div className="h-80 w-full flex p-4 border-gray-500  overflow-auto">
             {messages.length === 0 ? (
               <h1>no messages</h1>
             ) : (
@@ -121,15 +121,16 @@ function chat(props) {
             )}
           </div>
 
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full flex justify-center border-1 border-gray-500 items-center">
             <input
               type="text"
+              placeholder="type message here"
               value={text}
               onChange={(e) => settext(e.target.value)}
-              className="w-5/6 p-1.5 border-1 border-gray-500"
+              className="w-5/6 p-1.5"
             />
-            <button onClick={handleSubmit} className=" w-1/6">
-              send
+            <button onClick={handleSubmit} className="mr-1 cursor-pointer w-1/6 rounded-sm text-lg text-white bg-green-500 ">
+              Send
             </button>
           </div>
         </div>
