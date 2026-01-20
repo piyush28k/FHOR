@@ -15,7 +15,7 @@ const ProfilePage = () => {
     }
   }, [profile]);
 
-  console.log("Profile Data:", gigs);
+  console.log(profile);
 
   const deleteGig = async (id) => {
     try {
@@ -49,6 +49,7 @@ const ProfilePage = () => {
             <div className="mt-2 text-sm text-black left-4 gap-1">
               <p className="mt-2 font-medium">{profile?.location}</p>
               <div>
+                {profile?.languages.length ===0 && (<div className="font-medium">add languages</div>)}
                 {profile?.languages?.map((exp, ind) => (
                   <span key={ind} className="font-medium">
                     {ind !== 0 && ", "}
@@ -92,12 +93,15 @@ const ProfilePage = () => {
 
           <div className="border-1 p-6 border-gray-300 rounded-xl">
             <h3 className="text-xl font-semibold mb-2">Bio</h3>
+            {profile?.bio === null && (<div className="font-medium text-gray-600">Bio is not added</div>)}
             <p className="text-gray-600">{profile?.bio}</p>
           </div>
 
           <div className="p-6 rounded-xl">
             <h3 className="text-xl font-semibold mt-16 mb-2">Certifications</h3>
             <ul className="list-disc list-inside text-gray-700">
+              {profile?.certifications.length === 0 && (<div className="font-medium text-gray-600">No certifications added</div>)}
+
               {profile?.certifications.map((cert, idx) => (
                 <li key={idx}>{cert}</li>
               ))}
@@ -108,6 +112,8 @@ const ProfilePage = () => {
           <div className="bg-white p-6 border-1 border-gray-300 rounded-xl">
             <h3 className="text-lg font-semibold mb-2">Skills</h3>
             <div className="flex flex-wrap gap-3">
+              {profile?.skills.length === 0 && (<div className="font-medium text-gray-600">No skills added</div>)}
+
               {profile?.skills.map((skill, idx) => (
                 <span
                   key={idx}
@@ -142,6 +148,8 @@ const ProfilePage = () => {
             </dialog>
 
             <div className="flex overflow-x-auto gap-4 p-2 rounded-box bg-base-200 scrollbar-hide">
+              {gigs?.length === 0 && (<div className="font-medium text-gray-600">No Gigs added</div>)}
+
               {gigs?.map((gig, idx) => (
                 <div
                   key={idx}
@@ -182,8 +190,11 @@ const ProfilePage = () => {
           {/* )} */}
 
           <div className="h-screen w-full mt-20">
-            <h3 className="text-lg font-semibold mb-6">Feedback</h3>
+            <h3 className="text-lg font-semibold mb-6">Comments</h3>
             <div className="space-y-4">
+               {profile?.feedback.length === 0 && (<div className="font-medium text-gray-600">No comments yet</div>)}
+
+              
               {profile?.feedback.map((feedback, idx) => (
                 <div
                   key={idx}

@@ -16,6 +16,7 @@ function Explore() {
   const {user} = useAuth()
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [total, setTotal] = useState(1);
 
   useEffect(()=>{
     if(!user) return
@@ -24,6 +25,7 @@ function Explore() {
         const response = await axios.post(`${import.meta.env.VITE_API_URL}/profile/allprofiles?page=${page}&limit=6`,{user,service,location})
         console.log(response.data)
         setTotalPages(response.data.totalPage)
+        setTotal(response.data.total)
         setRes(response.data.data)
       }catch(error){
         console.error("error fetching profiles data :", error.response.data || error.message)``
@@ -96,6 +98,7 @@ function Explore() {
 
         {/* Job Cards Section */}
         <div className="max-w-7xl mx-auto p-8 sm:p-12">
+            {res.length !==0 && (<div className="text-lg mb-4">Total {total} people found.</div>)}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/*map over the data to create cards */}
             {res.length === 0 && (
