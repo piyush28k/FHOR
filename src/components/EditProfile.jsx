@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthProvider";
 import ImageUploader from "../components/ImageUpload"; // Assuming this is your styled uploader
 
 const EditProfile = () => {
-    const { user, profile } = useAuth();
+    const { profile } = useAuth();
     // Default form state is empty
     const [formData, setFormData] = useState({
         name: "", photo: "", title: "", location: "", bio: "",
@@ -31,15 +31,15 @@ const EditProfile = () => {
     };
 
     const handleArrayChange = (e, field) => {
-        const value = e.target.value.split(",").map((v) => v.trim()).filter(Boolean); // filter(Boolean) removes empty strings
+        const value = e.target.value.split(",").map((v) => v.trim()); // filter(Boolean) removes empty strings
         setFormData((prev) => ({ ...prev, [field]: value }));
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.put(`${import.meta.env.VITE_API_URL}/profile/updateprofile`, { userId: profile?.userId, ...formData }, { withCredentials: true })
-            .then(() => (window.location.reload()))
-            .catch((err) => console.log(err));
+      e.preventDefault();
+      axios.put(`${import.meta.env.VITE_API_URL}/profile/updateprofile`, { userId: profile?.userId, ...formData }, { withCredentials: true })
+          .then(() => (window.location.reload()))
+          .catch((err) => console.log(err));
     };
 
     const handleImageUpload = (url) => {
@@ -127,6 +127,7 @@ const EditProfile = () => {
         name="languages"
         onChange={(e) => handleArrayChange(e, "languages")}
         placeholder="e.g. English, Hindi, Spanish"
+        value={formData.languages}
       />
       {formData.languages.length === 0 && <p className="text-sm text-gray-400">No languages added yet.</p>}
     </div>
@@ -139,6 +140,7 @@ const EditProfile = () => {
         name="skills"
         onChange={(e) => handleArrayChange(e, "skills")}
         placeholder="e.g. React, Node.js, MongoDB"
+        value={formData.skills}
       />
       {formData.skills.length === 0 && <p className="text-sm text-gray-400">Add your top 3–5 skills.</p>}
     </div>
@@ -151,6 +153,7 @@ const EditProfile = () => {
         name="certifications"
         onChange={(e) => handleArrayChange(e, "certifications")}
         placeholder="e.g. AWS Certified, Coursera ML Certificate"
+        value={formData.certifications}
       />
       {formData.certifications.length === 0 && (
         <p className="text-sm text-gray-400">You haven’t listed any certifications yet.</p>

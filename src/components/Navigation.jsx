@@ -141,7 +141,7 @@ const Navigation = () => {
             Explore
           </NavLink>
           <NavLink
-            to="Blog"
+            to="public"
             onClick={isOpen ? toggleMenu : undefined}
             className={({ isActive }) =>
               `block py-2 pr-4 pl-3 ${
@@ -149,7 +149,7 @@ const Navigation = () => {
               } duration-200 lg:hover:bg-transparent hover:text-blue-300 lg:p-0`
             }
           >
-            Blog
+            Public
           </NavLink>
 
           {!isOpen && (

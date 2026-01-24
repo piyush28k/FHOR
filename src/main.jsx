@@ -13,7 +13,7 @@ import Profile from "./pages/Profile.jsx";
 import {AuthProvider} from "./context/AuthProvider.jsx";
 import Signin from "./components/Signin.jsx";
 import Explore from "./pages/Explore.jsx";
-import { Blog } from "./pages/Blog.jsx";
+import Public from "./pages/Public.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import JobDetail from "./pages/UserDetail.jsx";
 
@@ -23,7 +23,7 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path="Profile" element={<Profile />} />
       <Route path="signin" element={<Signin />} />
-      <Route path="blog" element={<Blog />} />
+      <Route path="public" element={<Public />} />
       <Route path="explore" element={<Explore />} />
       <Route path='explore/:id' element={<JobDetail/>}/>
     </Route>

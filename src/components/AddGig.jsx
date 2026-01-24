@@ -42,12 +42,12 @@ function AddGig() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-lg rounded-xl p-6 mt-6">
+    <div className="max-w-md mx-auto mt-6">
       <h2 className="text-2xl font-bold mb-4 text-center text-gray-700">
         Add New Gig
       </h2>
       <div className="mb-6">
-        <h3 className="text-lg font-semibold mb-2">Profile Picture</h3>
+        <h3 className="text-lg font-semibold mb-2">Picture</h3>
         <ImageUploader onUpload={handleImageUpload} />
         {data.photo ? (
           <img

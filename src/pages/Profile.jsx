@@ -130,7 +130,7 @@ const ProfilePage = () => {
             <div className="flex gap-3 items-center">
               <h3 className="text-xl font-bold">Gigs</h3>
               <button
-                className="bg-yellow-300 border border-gray-300 text-sm px-3 py-1 rounded-full font-bold"
+                className="bg-gray-200 border border-gray-300 text-sm px-2 py-1 rounded-full font-bold"
                 onClick={() => document.getElementById("my_modal").showModal()}
               >
                 +
@@ -176,7 +176,7 @@ const ProfilePage = () => {
                     </p>
                     <div className="mt-2 flex justify-between items-center text-sm">
                       <span className="font-bold text-primary">
-                        {gig?.price}
+                        ₹{gig?.price}
                       </span>
                       <span className="font-semibold">
                         delivered in: {gig?.deliveryDate} Days
