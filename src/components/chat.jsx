@@ -39,8 +39,6 @@ function chat(props) {
         }
       );
 
-      // console.log(res.data);
-
       if (!res) console.log("error in addMessage => ", res);
       // console.log(room)
 
@@ -71,7 +69,7 @@ function chat(props) {
           `${import.meta.env.VITE_API_URL}/chat/getmessage`,
           { room }
         );
-        // console.log(res)
+        console.log(res)
         setMessages(res.data);
       } catch (err) {
         console.log("get message is returning error =>", err);
@@ -121,7 +119,7 @@ function chat(props) {
             )}
           </div>
 
-          <div className="w-full flex justify-center border-1 border-gray-500 items-center">
+          <div className="w-full flex justify-center border border-gray-500 items-center">
             <input
               type="text"
               placeholder="type message here"

@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { useAuth } from "../context/AuthProvider.jsx";
+import Loading from "../components/loading.jsx";
 
 function Explore() {
 
@@ -12,11 +13,13 @@ function Explore() {
   const [location, setLocation] = useState("");
   const [servicetemp, setServicetemp] = useState("");
   const [locationtemp, setLocationtemp] = useState("");
-  const [res, setRes] = useState([]);
+  const [res, setRes] = useState([null]);
   const {user} = useAuth()
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [total, setTotal] = useState(1);
+
+  console.log(res)
 
   useEffect(()=>{
     if(!user) return
@@ -97,8 +100,10 @@ function Explore() {
         </div>
 
         {/* Job Cards Section */}
+        {res[0] === null ? (<Loading/>):(
         <div className="max-w-7xl mx-auto p-8 sm:p-12">
-            {res.length !==0 && (<div className="text-lg mb-4">Total {total} people found.</div>)}
+
+          {res.length !==0 && (<div className="text-lg mb-4">Total {total} people found.</div>)}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/*map over the data to create cards */}
             {res.length === 0 && (
@@ -127,7 +132,7 @@ function Explore() {
                   </div>
                 </div>
 
-                <p className="mt-5 text-gray-700 text-sm leading-relaxed flex-grow">
+                <p className="mt-5 text-gray-700 text-sm leading-relaxed grow">
                   {job.bio ||
                     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum architecto accusantium natus, numquam ratione illo."}
                 </p>
@@ -141,17 +146,18 @@ function Explore() {
               </div>
             ))}
           </div>
-        </div>
+
+        </div>)}
 
         <div className=" w-full flex gap-5 justify-center my-7 items-center">
-          <button className="border-1 border-gray-300 px-4 py-5 rounded-full" 
+          <button className="border border-gray-300 px-4 py-5 rounded-full" 
           disabled={page===1} 
           onClick={() => setPage(prev => Math.max(prev - 1, 1))} 
           > Prev </button> 
 
           <div>{page}/{totalPages}</div>
 
-          <button className="border-1 border-gray-300 px-4 py-5 rounded-full"
+          <button className="border border-gray-300 px-4 py-5 rounded-full"
           disabled={page===totalPages} 
           onClick={() => setPage(prev => Math.min(prev + 1, totalPages))} 
           > Next </button>

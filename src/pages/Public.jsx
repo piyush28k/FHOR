@@ -1,8 +1,11 @@
 import React from 'react'
+import Loading from '../components/loading'
 
 function Public() {
   return (
-    <div>Public</div>
+   <>
+    <Loading/>
+   </>
   )
 }
 
