@@ -15,6 +15,10 @@ const ProfilePage = () => {
     }
   }, [profile]);
 
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
   console.log(profile);
 
   const deleteGig = async (id) => {
@@ -33,7 +37,7 @@ const ProfilePage = () => {
   return (
     <>
       <div className="min-h-screen flex flex-col lg:flex-row gap-8 p-6 lg:px-20">
-        <aside className="h-5/6 lg:w-1/3 lg:mx-20 border-1 border-gray-300 p-6 rounded-xl lg:sticky lg:top-40">
+        <aside className="h-5/6 lg:w-1/3 lg:mx-20 border border-gray-300 p-6 rounded-xl lg:sticky lg:top-40">
           <div className="flex h-96 flex-col items-center ">
             <img
               src={profile?.photo}
@@ -44,7 +48,7 @@ const ProfilePage = () => {
               {profile?.name}
             </h2>
             <p className=" text-gray-500">{profile?.email}</p>
-            <div className="border-1 w-80 mt-6 border-gray-300 my-2"></div>
+            <div className="border w-80 mt-6 border-gray-300 my-2"></div>
 
             <div className="mt-2 text-sm text-black left-4 gap-1">
               <p className="mt-2 font-medium">{profile?.location}</p>
@@ -91,7 +95,7 @@ const ProfilePage = () => {
             </p>
           </div>
 
-          <div className="border-1 p-6 border-gray-300 rounded-xl">
+          <div className="border p-6 border-gray-300 rounded-xl">
             <h3 className="text-xl font-semibold mb-2">Bio</h3>
             {profile?.bio === null && (<div className="font-medium text-gray-600">Bio is not added</div>)}
             <p className="text-gray-600">{profile?.bio}</p>
@@ -109,7 +113,7 @@ const ProfilePage = () => {
           </div>
 
           {/* Skills */}
-          <div className="bg-white p-6 border-1 border-gray-300 rounded-xl">
+          <div className="bg-white p-6 border border-gray-300 rounded-xl">
             <h3 className="text-lg font-semibold mb-2">Skills</h3>
             <div className="flex flex-wrap gap-3">
               {profile?.skills.length === 0 && (<div className="font-medium text-gray-600">No skills added</div>)}
@@ -153,7 +157,7 @@ const ProfilePage = () => {
               {gigs?.map((gig, idx) => (
                 <div
                   key={idx}
-                  className="w-72 group bg-white rounded-xl shadow-md flex-shrink-0 relative"
+                  className="w-72 group bg-white rounded-xl shadow-md shrink-0 relative"
                 >
                   <div className="absolute p-2 flex gap-1.5 right-1">
                     {/* <button className="bg-gray-300 px-2.5 py-1 rounded-xl cursor-pointer">Edit</button> */}
@@ -198,7 +202,7 @@ const ProfilePage = () => {
               {profile?.feedback.map((feedback, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start space-x-4 p-6 border-1 border-gray-300 rounded-xl"
+                  className="flex items-start space-x-4 p-6 border border-gray-300 rounded-xl"
                 >
                   <img
                     src={feedback.photo}

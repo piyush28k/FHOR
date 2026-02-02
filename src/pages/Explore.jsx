@@ -37,6 +37,10 @@ function Explore() {
     }
     fetch()
   },[user,page,service,location])
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
   
 
   const handleSubmit = (e) => {

@@ -152,6 +152,20 @@ const Navigation = () => {
             Public
           </NavLink>
 
+          <NavLink
+            to="notification"
+            onClick={isOpen ? toggleMenu : undefined}
+            className={({ isActive }) =>
+              `block py-2 pr-4 pl-3 ${
+                isActive ? "text-blue-600 text-lg font-semibold" : ""
+              } duration-200 lg:hover:bg-transparent hover:text-blue-300 lg:p-0`
+            }
+          >
+            Inbox
+          </NavLink>
+
+          
+
           {!isOpen && (
             <NavLink
               to="Profile"

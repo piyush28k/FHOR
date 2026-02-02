@@ -16,6 +16,7 @@ import Explore from "./pages/Explore.jsx";
 import Public from "./pages/Public.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import JobDetail from "./pages/UserDetail.jsx";
+import Notification from "./components/notification.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="signin" element={<Signin />} />
       <Route path="public" element={<Public />} />
       <Route path="explore" element={<Explore />} />
+      <Route path="notification" element={<Notification />} />
       <Route path='explore/:id' element={<JobDetail/>}/>
     </Route>
   )

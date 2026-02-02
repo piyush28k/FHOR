@@ -9,11 +9,18 @@ function chat(props) {
   const [text, settext] = useState("");
   const [room, setroom] = useState("");
   const [messages, setMessages] = useState([]);
-  const { user } = useAuth();
+  const { user,profile } = useAuth();
+
+  // console.log(import.meta.env.VITE_SENDER_URL)
 
   useEffect(() => {
     socket.current = io(`${import.meta.env.VITE_API_URL}`);
   }, []);
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
 
   useEffect(() => {
     if (room) {
@@ -35,7 +42,10 @@ function chat(props) {
         {
           room,
           sender: user,
+          receiver:props.id,
+          senderName:profile.name,
           message: text,
+          link:`${import.meta.env.VITE_SENDER_URL}/explore/${user}`
         }
       );
 
@@ -43,9 +53,12 @@ function chat(props) {
       // console.log(room)
 
       socket.current.emit("send_message", {
-        room,
-        sender: user,
-        message: text,
+          room,
+          sender: user,
+          receiver:props.id,
+          senderName:profile.name,
+          message: text,
+          link:`${import.meta.env.VITE_SENDER_URL}/explore/${user}`
       });
 
       setMessages((list) => [
@@ -69,7 +82,7 @@ function chat(props) {
           `${import.meta.env.VITE_API_URL}/chat/getmessage`,
           { room }
         );
-        console.log(res)
+        // console.log(res)
         setMessages(res.data);
       } catch (err) {
         console.log("get message is returning error =>", err);
@@ -93,11 +106,12 @@ function chat(props) {
     };
   }, [socket.current]);
 
-  console.log(messages);
+  // console.log(messages);
 
   return (
     <>
       <>
+          {/* <div ref={bottomRef} /> */}
         <div className="border border-gray-200 rounded-lg">
           <div className="h-80 w-full flex p-4 border-gray-500  overflow-auto">
             {messages.length === 0 ? (
@@ -108,7 +122,7 @@ function chat(props) {
                   <div key={i}>
                     <h4
                       className={` ${
-                        message.sender == props.id ? "text-right" : "text-left"
+                        message.sender == props.id ? "text-left" : "text-right"
                       }`}
                     >
                       {message.message}
