@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { useAuth } from "../context/AuthProvider.jsx";
-import Loading from "../components/loading.jsx";
+import Loading from "../components/Loading.jsx";
 
 function Explore() {
 
