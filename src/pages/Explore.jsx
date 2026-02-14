@@ -50,7 +50,7 @@ function Explore() {
 
   return (
     <>
-      <div className="w-full min-h-screen bg-gray-50">
+      <div className="w-full min-h-screen bg-[#F4F2EE]">
         {/* --- 1. Search Section (White & Yellow Theme) --- */}
         <div className="w-full border-b border-gray-200 bg-white flex flex-col items-center justify-center py-10 px-6">
           <div className="flex flex-col md:flex-row items-center gap-6">

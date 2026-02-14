@@ -30,7 +30,7 @@ function ImageUploader({ onUpload }) {
   };
 
   return (
-    <div className="my-4">
+    <div className="">
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 items-start">
         <label className="text-sm font-medium text-gray-700">
           Choose an image:
@@ -45,17 +45,11 @@ function ImageUploader({ onUpload }) {
         <button
           type="submit"
           disabled={loading}
-          className="mt-2 px-4 py-2 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 disabled:opacity-60"
+          className="mt-2 px-4 py-2 cursor-pointer rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 disabled:opacity-60"
         >
-          {loading ? "Uploading..." : "Upload Image"}
+          {loading ? "Showing..." : "Show Image"}
         </button>
       </form>
-      {/* {uploadedImageUrl && (
-                <div className="mt-2">
-                    <p>Upload Successful!</p>
-                    <img src={uploadedImageUrl} alt="Uploaded" style={{ width: '150px' }} />
-                </div>
-            )} */}
     </div>
   );
 }

@@ -36,9 +36,16 @@ function notification() {
           ) : (
             <div className="">
               {noti.map((n, i) => (
-                <button onClick={()=>navigate(`${n.link}`)} key={i} className="border my-3 cursor-pointer w-full p-2 px-5 rounded-2xl flex flex-col border-black text-start">
-                  <h1 className="text-xl font-bold">{n.senderName}</h1>
-                  <h1>"{n.message}"</h1>
+                <button  onClick={()=>navigate(`${n.link}`)} key={i} className="border my-3 cursor-pointer w-full p-2 px-5 rounded-2xl flex justify-between border-black text-start">
+                  <div>
+                    <h1 className="text-xl font-bold">{n.senderName}</h1>
+                    <h1>"{n.message}"</h1>
+                  </div>
+                  <div>
+                    {new Date(n.createdAt).toLocaleTimeString()}
+                    <span>  -- </span>
+                    {new Date(n.createdAt).toLocaleDateString()}
+                  </div>
                 </button>
               ))}
             </div>
