@@ -99,7 +99,7 @@ function Home() {
             />
             <h1 className="text-xl md:text-2xl my-2 font-bold">Developer</h1>
             <p className="text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Build scalable, secure web applications tailored to your business needs.
             </p>
           </div>
 
@@ -112,7 +112,7 @@ function Home() {
             />
             <h1 className="text-xl md:text-2xl my-2 font-bold">Plumber</h1>
             <p className="text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reliable plumbing repairs, installations, and maintenance for homes, offices.
             </p>
           </div>
 
@@ -125,7 +125,7 @@ function Home() {
             />
             <h1 className="text-xl md:text-2xl my-2 font-bold">Tutor</h1>
             <p className="text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Personalized tutoring improving academic performance, confidence, and subject understanding.
             </p>
           </div>
         </div>
@@ -146,8 +146,7 @@ function Home() {
               </div>
             </div>
             <div className="w-96">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-              ipsam unde voluptatem? Eveniet incidunt earum eos veritatis error?
+              Delivering reliable, high-quality services with proven expertise, innovation, and strong customer satisfaction across industries.
             </div>
           </div>
           <div className="my-10">
@@ -159,8 +158,7 @@ function Home() {
               </div>
             </div>
             <div className="w-96">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-              ipsam unde voluptatem? Eveniet incidunt earum eos veritatis error?
+              Thousands trust our platform for seamless bookings, secure payments, and dependable professional service experiences.
             </div>
           </div>
           <div className="my-10">
@@ -172,8 +170,7 @@ function Home() {
               </div>
             </div>
             <div className="w-96">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-              ipsam unde voluptatem? Eveniet incidunt earum eos veritatis error?
+              Verified freelancers providing skilled, timely, and high-quality services across diverse categories and client needs.
             </div>
           </div>
         </div>
@@ -202,8 +199,7 @@ function Home() {
 
     {/* Text */}
     <h4 className="max-w-xl font-bold text-xl sm:text-2xl md:text-4xl text-center md:text-left">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Autem nulla similique unde odio deserunt non culpa.
+      "I found skilled professionals within minutes. reliable service, Smooth communication and great experience."
     </h4>
 
   </div>

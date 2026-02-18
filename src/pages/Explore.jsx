@@ -154,14 +154,14 @@ function Explore() {
         </div>)}
 
         <div className=" w-full flex gap-5 justify-center my-7 items-center">
-          <button className="border border-gray-300 px-4 py-5 rounded-full" 
+          <button className="border border-gray-300 px-4 py-5 cursor-pointer rounded-full" 
           disabled={page===1} 
           onClick={() => setPage(prev => Math.max(prev - 1, 1))} 
           > Prev </button> 
 
           <div>{page}/{totalPages}</div>
 
-          <button className="border border-gray-300 px-4 py-5 rounded-full"
+          <button className="border border-gray-300 px-4 py-5 cursor-pointer rounded-full"
           disabled={page===totalPages} 
           onClick={() => setPage(prev => Math.min(prev + 1, totalPages))} 
           > Next </button>

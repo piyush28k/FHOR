@@ -14,7 +14,7 @@ const Footer = () => {
               HOR
             </h2>
             <p className="mt-3 text-sm text-gray-400">
-              From small tasks to complete projects, we provide solutions for every type of work.
+              From small tasks to complete projects, we provide freelancers for every type of work.
             </p>
           </div>
 

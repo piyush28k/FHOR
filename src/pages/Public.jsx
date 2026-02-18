@@ -3,13 +3,15 @@ import Loading from "../components/Loading";
 import ImageUploader from "../components/ImageUpload";
 import { useAuth } from "../context/AuthProvider.jsx";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 function Public() {
   const [text, settext] = useState("");
   const [img, setimg] = useState("");
   const { profile, user } = useAuth();
   const [post, setpost] = useState([]);
-
+  const navigate = useNavigate()
   // console.log(profile)
 
   const handleImageUpload = (url) => {
@@ -29,7 +31,7 @@ function Public() {
       },
     );
 
-    if (!res) console.log("error in adding post", res);
+    if (!res);
 
     alert("post added!");
     setTimeout(() => {
@@ -42,7 +44,10 @@ function Public() {
       const res = await axios.get(
         `${import.meta.env.VITE_API_URL}/post/getpost`,
       );
-      if (!res) console.log("error in getting res", res);
+      if (!res){
+        console.log("error in getting res", res)
+        setpost([null]);
+      }
       console.log(res.data.data);
       setpost(res.data.data);
     };
@@ -52,8 +57,9 @@ function Public() {
   return (
     <>
       {/* <Loading/> */}
+
       <div className="flex bg-[#F4F2EE] justify-center">
-        <div className="h-full w-2/5 ">
+        <div className="h-full p-3 sm:w-2/5 ">
           <div className="bg-white w-full flex flex-col border rounded-xl p-3 my-5 border-gray-400">
             <ImageUploader onUpload={handleImageUpload} />
             {img && <img src={img} alt="Profile" className="mt-2" />}
@@ -73,14 +79,19 @@ function Public() {
             </button>
           </div>
 
-          {post.length === 0 ? (
-            <div className="h-screen w-full text-2xl">No post found!</div>
+          {post.length === 0 && (
+            <div className="relative -top-60  items-center"><Loading/></div>
+          )}
+
+          {post[0] === null ? (
+            <div className="">error in fetching post</div>
           ) : (
             <div>
               {post.map((p,i) => (
                 <div key={i} className="bg-white justify-between w-full mb-2 h-auto border rounded-xl p-4 border-gray-400">
                   <div className="flex mb-5 justify-between items-center">
-                    <div className="flex items-center">
+
+                    <div onClick={()=>navigate(`${p.link}`)} className="flex cursor-pointer items-center">
                       <img
                         className="h-12 w-12 object-cover rounded-full mr-2"
                         src={p.profileImg}

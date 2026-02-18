@@ -47,7 +47,7 @@ function JobDetail() {
               </h1>
 
               {/* Rating and Level */}
-              <div className="flex items-center space-x-3 mt-1">
+              {/* <div className="flex items-center space-x-3 mt-1">
                 <span className="text-lg font-semibold text-gray-800">4.9</span>
                 <div className="flex text-yellow-500">
                   <span className="text-xl">★</span>
@@ -60,7 +60,7 @@ function JobDetail() {
                 <span className="text-green-600 font-bold text-sm">
                   Level 2
                 </span>
-              </div>
+              </div> */}
 
               {/* Tagline */}
               <p className="text-gray-700 mt-1 italic">{data?.titlez}</p>
@@ -136,7 +136,7 @@ function JobDetail() {
           {data?.gigs?.map((gig, idx) => (
             <div
               key={idx}
-              className="w-72 bg-white rounded-xl shadow-md flex-shrink-0"
+              className="w-72 bg-white rounded-xl shadow-md shrink"
             >
               <img
                 src={gig.photo}
